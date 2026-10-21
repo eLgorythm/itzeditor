@@ -52,6 +52,8 @@
     <string name="untitled">Untitled</string>
 
     <!-- Dialogs & toasts -->
+    <string name="dialog_saveas_hint">File name (e.g. notes.md)</string>
+    <string name="toast_invalid_name">File name cannot be empty</string>
     <string name="dialog_goto_title">Go to line</string>
     <string name="dialog_goto_hint">Line number (1–%1$d)</string>
     <string name="btn_go">Go</string>

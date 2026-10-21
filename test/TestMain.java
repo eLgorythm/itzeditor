@@ -1,4 +1,5 @@
 import me.fndlabs.itzeditor.editor.DocumentManager;
+import me.fndlabs.itzeditor.editor.FileNames;
 import me.fndlabs.itzeditor.editor.FindEngine;
 import me.fndlabs.itzeditor.editor.GutterNumbers;
 import me.fndlabs.itzeditor.editor.TextStats;
@@ -29,6 +30,7 @@ public class TestMain {
         testUndo();
         testUntitledNames();
         testGutter();
+        testFileNames();
         System.out.println("Tests: " + passed + " passed, " + failed + " failed");
         if (failed > 0) System.exit(1);
         System.out.println("ALL PASS");
@@ -148,5 +150,28 @@ public class TestMain {
         // Wrap di tengah + beberapa baris
         eq("gutter mixed", "1\n\n2\n3",
                 GutterNumbers.build("aaaa bbbb\ncc\ndd", new int[]{0, 5, 10, 13}));
+    }
+
+    private static void testFileNames() {
+        // sanitize: spasi tepi dipotong, pemisah path dibuang, nama tak layak -> ""
+        eq("sanitize plain", "catatan.md", FileNames.sanitize("catatan.md"));
+        eq("sanitize trim", "catatan.md", FileNames.sanitize("  catatan.md  "));
+        eq("sanitize slash", "abc.txt", FileNames.sanitize("a/b\\c.txt"));
+        eq("sanitize empty", "", FileNames.sanitize("   "));
+        eq("sanitize dotdot", "", FileNames.sanitize(".."));
+        eq("sanitize null", "", FileNames.sanitize(null));
+        // extensionOf: huruf kecil, berkas tersembunyi tanpa ekstensi
+        eq("ext md", "md", FileNames.extensionOf("catatan.md"));
+        eq("ext upper", "txt", FileNames.extensionOf("NOTES.TXT"));
+        eq("ext multi", "gz", FileNames.extensionOf("arsip.tar.gz"));
+        eq("ext none", "", FileNames.extensionOf("README"));
+        eq("ext hidden", "", FileNames.extensionOf(".gitignore"));
+        eq("ext trailing dot", "", FileNames.extensionOf("nama."));
+        // mimeTypeFor: ekstensi dikenal -> MIME cocok; tak dikenal -> */*
+        eq("mime txt", "text/plain", FileNames.mimeTypeFor("a.txt"));
+        eq("mime md", "text/markdown", FileNames.mimeTypeFor("a.md"));
+        eq("mime json", "application/json", FileNames.mimeTypeFor("a.json"));
+        eq("mime py bebas", "*/*", FileNames.mimeTypeFor("script.py"));
+        eq("mime polos bebas", "*/*", FileNames.mimeTypeFor("LICENSE"));
     }
 }

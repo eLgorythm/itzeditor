@@ -12,6 +12,7 @@ import android.os.Looper;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.ViewGroup;
 import android.text.InputType;
 import android.widget.EditText;
@@ -37,6 +38,7 @@ import me.fndlabs.itzeditor.editor.Document;
 import me.fndlabs.itzeditor.editor.DocumentManager;
 import me.fndlabs.itzeditor.editor.EditorController;
 import me.fndlabs.itzeditor.editor.EditorView;
+import me.fndlabs.itzeditor.editor.FileNames;
 import me.fndlabs.itzeditor.editor.FindController;
 import me.fndlabs.itzeditor.editor.TextStats;
 import me.fndlabs.itzeditor.util.CrashReporter;
@@ -461,10 +463,50 @@ public final class MainActivity extends BaseActivity {
         Document d = docs.active();
         if (d == null) return;
         captureCurrent();
+        // Nama diketik di dialog sendiri, BUKAN di picker sistem: kolom nama
+        // picker tertutup keyboard di sebagian ROM, dan MIME intent yang
+        // dikunci text/plain membuat picker menempelkan .txt ke nama lain.
+        EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        input.setSingleLine(true);
+        input.setHint(R.string.dialog_saveas_hint);
+        input.setText(d.displayName);
+        int dot = d.displayName.lastIndexOf('.');
+        input.setSelection(0, dot > 0 ? dot : d.displayName.length());
+        input.setTextColor(getColor(R.color.text_primary));
+        int pad = dp(20);
+        input.setPadding(pad, dp(8), pad, dp(8));
+        AlertDialog dialog = new AlertDialog.Builder(this)
+                .setTitle(R.string.action_save_as)
+                .setView(input)
+                .setPositiveButton(R.string.btn_save, (dlg, w) -> {
+                    String name = FileNames.sanitize(input.getText().toString());
+                    if (name.isEmpty()) {
+                        pendingCloseDoc = null;
+                        showToast(getString(R.string.toast_invalid_name));
+                        return;
+                    }
+                    launchSaveAsPicker(d, name);
+                })
+                .setNegativeButton(R.string.btn_cancel, (dlg, w) -> pendingCloseDoc = null)
+                .setOnCancelListener(dlg -> pendingCloseDoc = null)
+                .create();
+        dialog.show();
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setSoftInputMode(
+                    WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE
+                            | WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        }
+        input.requestFocus();
+    }
+
+    private void launchSaveAsPicker(Document d, String name) {
         Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_TITLE, d.displayName);
+        // MIME mengikuti ekstensi nama yang diketik agar picker tidak
+        // menempelkan ekstensi lain (mis. .txt) ke nama tersebut.
+        intent.setType(FileNames.mimeTypeFor(name));
+        intent.putExtra(Intent.EXTRA_TITLE, name);
         intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION
                 | Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
         startActivityForResult(intent, REQ_SAVE_AS);

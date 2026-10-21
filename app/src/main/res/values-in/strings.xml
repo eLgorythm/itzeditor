@@ -47,6 +47,8 @@
     <string name="status_modified">Diubah</string>
     <string name="untitled">Tanpa Judul</string>
 
+    <string name="dialog_saveas_hint">Nama file (mis. catatan.md)</string>
+    <string name="toast_invalid_name">Nama file tidak boleh kosong</string>
     <string name="dialog_goto_title">Loncat ke baris</string>
     <string name="dialog_goto_hint">Nomor baris (1–%1$d)</string>
     <string name="btn_go">Loncat</string>

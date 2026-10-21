@@ -1,12 +1,14 @@
 # ItzEditor
 
-A lightweight native Android text editor — multi-tab editing, find & replace, dark mode, and session restore in a **68 KB** APK with **zero dependencies**.
+A lightweight native Android text editor — multi-tab editing, find & replace, dark mode, and session restore in a **72 KB** APK with **zero dependencies**.
 
-![Version](https://img.shields.io/badge/version-1.0.4-blue)
-![APK size](https://img.shields.io/badge/APK-68%20KB-brightgreen)
+![Version](https://img.shields.io/badge/version-1.0.5-blue)
+![APK size](https://img.shields.io/badge/APK-72%20KB-brightgreen)
 ![Min SDK](https://img.shields.io/badge/minSdk-26%20(Android%208.0)-orange)
 ![Language](https://img.shields.io/badge/language-Java-red)
 ![Dependencies](https://img.shields.io/badge/dependencies-none-brightgreen)
+
+*Baca dalam [Bahasa Indonesia](README.id.md).*
 
 ## Features
 
@@ -63,20 +65,21 @@ app/src/main/java/me/fndlabs/itzeditor/
 │   ├── GutterNumbers.java   # wrap-aware line numbers (pure logic)
 │   ├── TextStats.java       # line/column & statistics (pure logic)
 │   ├── FindEngine.java      # search incl. regex (pure logic)
-│   └── UndoHistory.java     # snapshot history with coalescing (pure logic)
+│   ├── UndoHistory.java     # snapshot history with coalescing (pure logic)
+│   └── FileNames.java       # save-as name cleanup & MIME by extension (pure logic)
 ├── data/                    # Prefs, FileRepository (SAF), SessionStore
 └── util/                    # LocaleHelper, CrashReporter
 ```
 
-The pure-logic classes are covered by a dependency-free JVM test suite in `test/TestMain.java` — currently **44 tests, all passing**.
+The pure-logic classes are covered by a dependency-free JVM test suite in `test/TestMain.java` — currently **61 tests, all passing**.
 
 ## Changelog
 
-See [CHANGELOG.md](CHANGELOG.md) for the full history. Latest: **v1.0.4** fixes the view snapping back to the top selection handle during *select → scroll → drag the bottom handle* — caret-follow now tracks the active end of the selection and stays out of the way during touch gestures.
+See [CHANGELOG.md](CHANGELOG.md) for the full history. Latest: **v1.0.5** fixes files always being saved with a `.txt` extension — "Save as" now asks for the file name in an in-app dialog (no longer covered by the keyboard) and keeps exactly the extension you type, whether that's `notes.md`, `script.py`, or no extension at all.
 
 ## License
 
-MIT — see `LICENSE` if present, or treat this code as MIT-licensed open source.
+MIT — see [LICENSE](LICENSE).
 
 ---
 

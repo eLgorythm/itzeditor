@@ -4,6 +4,12 @@ All notable changes to ItzEditor are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.5] — 2026-10-21
+
+### Fixed
+- Files always being saved with a `.txt` extension. The Save As flow now asks for the file name in an in-app dialog first, and the system picker intent uses a MIME type derived from the typed name's extension — saving as `notes.md`, `script.py`, or a name without an extension keeps exactly that name.
+- The file-name field being covered by the keyboard while saving. Naming now happens in the app's own dialog (which resizes for the keyboard), so in the system picker you only pick the folder and confirm.
+
 ## [1.0.4] — 2026-10-21
 
 ### Fixed
