@@ -1,0 +1,24 @@
+ItzEditor is a clean, minimal text editor for Android, written in native Java with no third-party libraries at all. The whole app is a 68 KB APK — no trackers, no ads, no accounts, no network access. Just editing.
+
+FEATURES
+
+• Multi-tab editing with modified indicators and a save/discard prompt when closing a changed tab
+• Undo and redo with typing coalescing
+• Find & replace: highlight all matches, next/previous navigation, replace one or all — with case sensitivity, whole word, and regular expression support
+• Wrap-aware line numbers that stay aligned with your text even when long lines wrap
+• Selection that behaves: drag a handle past the edge of the screen and the view auto-scrolls with you; scrolling the page never cancels an active selection
+• Dark mode (system / light / dark) and an interface in English or Indonesian
+• Autosave and full session restore — your tabs are exactly where you left them
+• Opens and saves files through the system file picker (Storage Access Framework), so no broad storage permission is ever requested; also opens text files shared from other apps
+• Go to line, duplicate line, delete line, insert date & time, read-only mode
+• Word wrap toggle, monospace / sans-serif / serif fonts from 10 to 22sp
+• Status bar with line and column, selection length, and line / word / character counts
+• Handles legacy files gracefully with a windows-1252 fallback when a file is not valid UTF-8
+
+REQUIREMENTS
+
+Android 8.0 (API 26) or newer.
+
+OPEN SOURCE
+
+ItzEditor is free and open-source software, released under the MIT License. It is built without Gradle through a transparent shell pipeline (aapt2 → javac → R8 → zipalign → apksigner), so the build is easy to audit. Source code, issue tracker, and releases: https://github.com/eLgorythm/ItzEditor

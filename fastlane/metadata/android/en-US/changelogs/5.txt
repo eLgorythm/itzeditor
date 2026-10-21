@@ -1,0 +1,3 @@
+• Fixed the view snapping back to the top selection handle during select → scroll → drag the bottom handle: caret-follow now tracks the active end of the selection and is disabled during touch gestures
+• Status bar line/column follows the active selection end
+• Selection handle grab radius reduced (30dp → 24dp) so scroll gestures near a handle are not hijacked

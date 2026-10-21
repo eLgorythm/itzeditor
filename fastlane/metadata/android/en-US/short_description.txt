@@ -1,0 +1,1 @@
+A lightweight, dependency-free native Android text editor with dark mode
