@@ -121,7 +121,7 @@ fi
 
 echo "==> insert dex into APK"
 cp "$OUT/app-unsigned.apk" "$OUT/app-with-dex.apk"
-(cd "$OUT" && zip -q app-with-dex.apk -j dex/classes.dex)
+python3 -c "import zipfile; z=zipfile.ZipFile('$OUT/app-with-dex.apk','a'); z.write('$OUT/dex/classes.dex','classes.dex',zipfile.ZIP_DEFLATED); z.close()"
 
 echo "==> zipalign"
 "$BUILD_TOOLS/zipalign" -f -p 4 "$OUT/app-with-dex.apk" "$OUT/app-aligned.apk"
