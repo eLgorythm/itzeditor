@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menuSaveAs" android:title="@string/action_save_as" />
+    <item android:id="@+id/menuRecent" android:title="@string/action_recent" />
+    <item android:id="@+id/menuGotoLine" android:title="@string/menu_goto_line" />
+    <item android:id="@+id/menuSelectAll" android:title="@string/menu_select_all" />
+    <item android:id="@+id/menuDuplicateLine" android:title="@string/menu_duplicate_line" />
+    <item android:id="@+id/menuDeleteLine" android:title="@string/menu_delete_line" />
+    <item android:id="@+id/menuInsertDateTime" android:title="@string/menu_insert_datetime" />
+    <item android:id="@+id/menuWordWrap" android:title="@string/menu_word_wrap" android:checkable="true" />
+    <item android:id="@+id/menuLineNumbers" android:title="@string/menu_line_numbers" android:checkable="true" />
+    <item android:id="@+id/menuReadOnly" android:title="@string/menu_toggle_readonly" android:checkable="true" />
+    <item android:id="@+id/menuShare" android:title="@string/action_share" />
+    <item android:id="@+id/menuSettings" android:title="@string/action_settings" />
+    <item android:id="@+id/menuAbout" android:title="@string/action_about" />
+</menu>

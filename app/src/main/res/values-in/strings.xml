@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ItzEditor</string>
+
+    <string name="action_new">Baru</string>
+    <string name="action_open">Buka</string>
+    <string name="action_save">Simpan</string>
+    <string name="action_save_as">Simpan sebagai</string>
+    <string name="action_undo">Urungkan</string>
+    <string name="action_redo">Ulangi</string>
+    <string name="action_find">Cari &amp; ganti</string>
+    <string name="action_close_tab">Tutup tab</string>
+    <string name="action_recent">File terakhir</string>
+    <string name="action_share">Bagikan teks</string>
+    <string name="action_settings">Pengaturan</string>
+    <string name="action_about">Tentang</string>
+
+    <string name="menu_select_all">Pilih semua</string>
+    <string name="menu_cut">Potong</string>
+    <string name="menu_copy">Salin</string>
+    <string name="menu_paste">Tempel</string>
+    <string name="menu_duplicate_line">Duplikat baris</string>
+    <string name="menu_delete_line">Hapus baris</string>
+    <string name="menu_goto_line">Loncat ke baris</string>
+    <string name="menu_insert_datetime">Sisipkan tanggal &amp; waktu</string>
+    <string name="menu_toggle_readonly">Hanya-baca</string>
+    <string name="menu_word_wrap">Bungkus kata</string>
+    <string name="menu_line_numbers">Nomor baris</string>
+
+    <string name="hint_find">Cari</string>
+    <string name="hint_replace">Ganti</string>
+    <string name="find_next">Berikutnya</string>
+    <string name="find_prev">Sebelumnya</string>
+    <string name="find_replace">Ganti</string>
+    <string name="find_replace_all">Ganti semua</string>
+    <string name="find_no_match">Tidak ada hasil</string>
+    <string name="find_match_count">%1$d dari %2$d</string>
+    <string name="find_replaced_all">%1$d hasil diganti</string>
+    <string name="find_invalid_regex">Regex tidak valid</string>
+    <string name="option_case">Huruf besar/kecil</string>
+    <string name="option_whole_word">Kata utuh</string>
+    <string name="option_regex">Regex</string>
+
+    <string name="status_position">Brs %1$d, Kol %2$d</string>
+    <string name="status_stats">%1$d baris · %2$d kata · %3$d karakter</string>
+    <string name="status_selection">%1$d dipilih</string>
+    <string name="status_modified">Diubah</string>
+    <string name="untitled">Tanpa Judul</string>
+
+    <string name="dialog_goto_title">Loncat ke baris</string>
+    <string name="dialog_goto_hint">Nomor baris (1–%1$d)</string>
+    <string name="btn_go">Loncat</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_cancel">Batal</string>
+    <string name="btn_save">Simpan</string>
+    <string name="btn_discard">Buang</string>
+    <string name="btn_close">Tutup</string>
+    <string name="unsaved_title">Perubahan belum disimpan</string>
+    <string name="unsaved_message">“%1$s” punya perubahan yang belum disimpan. Simpan sebelum menutup?</string>
+    <string name="toast_saved">Tersimpan</string>
+    <string name="toast_opened">Dibuka %1$s</string>
+    <string name="toast_open_failed">File tidak bisa dibuka</string>
+    <string name="toast_save_failed">File tidak bisa disimpan</string>
+    <string name="toast_recent_gone">File sudah tidak tersedia</string>
+    <string name="toast_nothing_to_share">Belum ada teks untuk dibagikan</string>
+    <string name="recent_empty">Belum ada file terakhir</string>
+    <string name="recent_clear">Bersihkan file terakhir</string>
+    <string name="hint_editor">Mulai mengetik…</string>
+
+    <string name="settings_title">Pengaturan</string>
+    <string name="settings_theme">Tema</string>
+    <string name="theme_system">Sistem</string>
+    <string name="theme_light">Terang</string>
+    <string name="theme_dark">Gelap</string>
+    <string name="settings_language">Bahasa</string>
+    <string name="lang_system">Sistem</string>
+    <string name="lang_en">English</string>
+    <string name="lang_id">Bahasa Indonesia</string>
+    <string name="settings_font_size">Ukuran huruf</string>
+    <string name="settings_font_family">Jenis huruf</string>
+    <string name="font_mono">Monospace</string>
+    <string name="font_sans">Sans-serif</string>
+    <string name="font_serif">Serif</string>
+    <string name="settings_autosave">Simpan otomatis ke file</string>
+    <string name="settings_autosave_summary">File yang lokasinya diketahui ditulis otomatis saat kamu mengetik</string>
+    <string name="settings_restore_session">Pulihkan sesi</string>
+    <string name="settings_restore_session_summary">Buka kembali tab dari sesi terakhir saat aplikasi dimulai</string>
+
+    <string name="about_title">Tentang ItzEditor</string>
+    <string name="about_message">ItzEditor %1$s\nEditor teks ringan untuk Android dengan tab, urungkan/ulangi, cari &amp; ganti, simpan otomatis, pulihkan sesi, dan mode gelap.\n\nDikembangkan oleh eLgorythm\nKode sumber:</string>
+    <string name="crash_title">Aplikasi crash terakhir kali</string>
+    <string name="crash_message">Ini log crash terakhir. Kamu bisa menyalin dan membagikannya untuk debugging.</string>
+    <string name="btn_copy">Salin</string>
+</resources>
